@@ -1,5 +1,5 @@
 class Router
-  def initialize(movies_controller, watchlist_controller)
+  def initialize(movies_controller)
     @movies_controller = movies_controller
     @watchlist_controller = watchlist_controller
     @running = true
@@ -41,7 +41,7 @@ class Router
     end
   end
 
-  # Watchlsit
+  # Watchlist
   def watchlist_menu
     print_watchlist_navigation_menu
     choice = gets.chomp.to_i
@@ -56,8 +56,8 @@ class Router
     puts "1. List Watchlists"
     puts "2. Create Watchlist"
     puts "3. Add to existing Watchlist"
-    # puts "4. Update Watchlist"
-    # puts "5. Delete Watchlist"
+    puts "4. Update Watchlist"
+    puts "5. Delete Watchlist"
     puts "6. Back to main menu"
     puts "7. Exit"
     print "> "
@@ -91,7 +91,7 @@ class Router
     puts "1. List Movies"
     puts "2. Create Movie"
     puts "3. Import movie from web"
-    # puts "4. Delete Movie"
+    puts "4. Delete Movie"
     puts "5. Back to main menu"
     puts "6. Exit"
     print "> "
@@ -102,7 +102,6 @@ class Router
     when 1 then @movies_controller.list
     when 2 then @movies_controller.add
     when 3 then @movies_controller.import
-    when 3 then @movies_controller.add_movie_to_watchlist
     when 4 then @movies_controller.delete
     when 5 then initial_route_action
     when 6 then stop!
